@@ -1,0 +1,54 @@
+import yaml
+import random
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
+# Path to the data.yaml file
+data_yaml_path = os.path.join(dataset.location, 'data.yaml')
+
+# Read the data.yaml file
+with open(data_yaml_path, 'r') as f:
+    data_config = yaml.safe_load(f)
+
+# Get the path to the validation images
+val_images_path = data_config['val']
+
+# List all image files in the validation directory
+val_image_files = [os.path.join(val_images_path, f) for f in os.listdir(val_images_path) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+
+if val_image_files:
+    # Pick a random image from the validation set
+    example_image_path = random.choice(val_image_files)
+    print(f"Running inference on: {example_image_path}")
+    
+    # Run inference
+    results = model.predict(example_image_path, save=True, conf=0.5)
+    
+    # Display results (YOLOv8 automatically saves annotated images to 'runs/detect/predict')
+    # The path to the saved image will be in results[0].path if available.
+    # However, it's easier to just display the image directly or show the saved one.
+
+    # Find the path to the saved annotated image
+    # The 'save=True' argument saves the image to a directory like 'runs/detect/predict'
+    # The first result object contains information about the prediction
+    if results and results[0].path:
+        # Construct the path to the annotated image, which is usually in the 'predict' folder
+        # after the current working directory
+        output_dir = os.path.join(os.getcwd(), 'runs/detect/predict')
+        annotated_image_name = os.path.basename(results[0].path)
+        annotated_image_path = os.path.join(output_dir, annotated_image_name)
+
+        if os.path.exists(annotated_image_path):
+            print(f"Annotated image saved at: {annotated_image_path}")
+            img = mpimg.imread(annotated_image_path)
+            plt.figure(figsize=(10, 8))
+            plt.imshow(img)
+            plt.axis('off')
+            plt.title('Inference Result')
+            plt.show()
+        else:
+            print(f"Could not find annotated image at {annotated_image_path}.")
+    else:
+        print("No results or annotated image path found.")
+else:
+    print("No validation images found to run inference on.")
