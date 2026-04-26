@@ -1,9 +1,4 @@
-- 👋 Hi, I’m @Maryy-666
-- 👀 I’m interested in software engineering 
-- 🌱 I’m currently learning python 
-- 📫 How to reach me mrymbzkrt544@gmail.com
+YOLO , gerçek zamanlı nesne tespiti performansını maksimize etmek amacıyla YOLO mimarisi kullanılarak geliştirilmiştir. Derin öğrenme tabanlı bu çözüm, yüksek doğruluk oranlarını düşük gecikme süreleriyle birleştirir.🛠️ Teknik MimariProje, bilgisayarlı görü (computer vision) prensiplerini temel alarak şu teknolojileri kullanmaktadır:Model: YOLOv8 Framework: Ultralytics Veri Seti: 🚀 Öne Çıkan Özellikler Gerçek Zamanlı İşleme: Video akışlarında veya canlı kamera görüntülerinde milisaniyeler içinde tespit.Yüksek Hassasiyet: Karmaşık arka planlarda bile optimize edilmiş mAP (mean Average Precision) skorları.Esnek Entegrasyon: Farklı donanım mimarilerine uyumlu (CPU/GPU).💻 Kurulum ve KullanımProjeyi yerel cihazınızda çalıştırmak için:Bash# Depoyu klonlayın
 
-<!---
-Maryy-666/Maryy-666 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+
+Geliştiren: Meryem Bozkurt
